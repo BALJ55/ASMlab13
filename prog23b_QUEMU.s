@@ -9,17 +9,17 @@ main:
 	MOV R10,#3
 ciclo:
 	VLDR S16, [R8]		@ load values into
-	VLDR S18, [R8,#4]		@ registers
-	VLDR S20, [R8,#8]
-	VLDR S22, [R8,#12]
+	VLDR S17, [R8,#4]		@ registers
+	VLDR S18, [R8,#8]
+	VLDR S19, [R8,#12]
 	VLDR S24, [R9]
-	VLDR S26, [R9,#4]
-	VLDR S28, [R9,#8]
-	VLDR S30, [R9,#12]
+	VLDR S25, [R9,#4]
+	VLDR S26, [R9,#8]
+	VLDR S37, [R9,#12]
 lenstride:
 @@LEN=4, STRIDE=1
 	VMRS R3, FPSCR		@ get current FPSCR
-	MOV R4,  #0b00011	@ bit pattern
+	MOV R4,  #0b000011	@ bit pattern
 	MOV R4, R4, LSL #16	@ move across to b21
 	ORR R3, R3, R4		@ keep all 1's
 	VMSR FPSCR, R3		@ transfer to FPSCR  
