@@ -32,9 +32,9 @@ lenstride:
 
 	
 	
+	ADD R5,#16
 	ADD R6,#16
-	ADD R8,#16
-	ADD R9,#16
+	ADD R7,#16
 	SUBS R10,#1
 	BNE  ciclo
 
