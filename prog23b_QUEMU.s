@@ -24,8 +24,8 @@ lenstride:
 	ORR R3, R3, R4		@ keep all 1's
 	VMSR FPSCR, R3		@ transfer to FPSCR  
 	
-	@@VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
-	@@VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
+	VSQRT.F32 S16, S16	@ Vector addition in parallel
+	VSQRT.F32 S24, S24	@ Vector addition in parallel
 
 	VADD.F32 S8, S16, S24	@ Vector addition in parallel
 
