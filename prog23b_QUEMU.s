@@ -17,19 +17,21 @@ ciclo:
 	VLDR S28, [R9,#8]
 	VLDR S30, [R9,#12]
 lenstride:
-/* Set LEN(16-18)=4 0b011 and STRIDE(20-21)=2 0b11 */
+@@LEN=4, STRIDE=1
 	VMRS R3, FPSCR		@ get current FPSCR
-	MOV R4,  #0b11011	@ bit pattern
+	MOV R4,  #0b00011	@ bit pattern
 	MOV R4, R4, LSL #16	@ move across to b21
 	ORR R3, R3, R4		@ keep all 1's
-	VMSR FPSCR, R3		@ transfer to FPSCR 
+	VMSR FPSCR, R3		@ transfer to FPSCR  
 	VADD.F32 S8, S16, S24	@ Vector addition in parallel
 
 	VSTR S8, [R6]
-	VSTR S10, [R6,#4]
-	VSTR S12, [R6,#8]
-	VSTR S14, [R6,#12]
+	VSTR S9, [R6,#4]
+	VSTR S10, [R6,#8]
+	VSTR S11, [R6,#12]
 
+	
+	
 	ADD R6,#16
 	ADD R8,#16
 	ADD R9,#16
@@ -58,8 +60,8 @@ _exit:
 add_value3: .word value3
 
 	.data
-value1:	.float 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0
-value2:	.float 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.101, 0.11, 0.12
+value1:	.float 1.0, 4.0, 9.0, 16.0, 25.0, 36.0, 49.0, 64.0, 81.0, 100.0, 121.0, 144.0
+value2:	.float 1.0, 4.0, 9.0, 16.0, 25.0, 36.0, 49.0, 64.0, 81.0, 100.0, 121.0, 144.0
 value3:	.float 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
 
 string:
