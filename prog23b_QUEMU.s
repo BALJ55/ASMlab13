@@ -23,7 +23,11 @@ lenstride:
 	MOV R4, R4, LSL #16	@ move across to b21
 	ORR R3, R3, R4		@ keep all 1's
 	VMSR FPSCR, R3		@ transfer to FPSCR  
-	VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
+	
+	@@VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
+	@@VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
+
+	VADD.F32 S8, S16, S24	@ Vector addition in parallel
 
 	VSTR S8, [R6]
 	VSTR S9, [R6,#4]
