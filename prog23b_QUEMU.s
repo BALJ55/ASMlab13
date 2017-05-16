@@ -15,7 +15,7 @@ ciclo:
 	VLDR S24, [R9]
 	VLDR S25, [R9,#4]
 	VLDR S26, [R9,#8]
-	VLDR S37, [R9,#12]
+	VLDR S27, [R9,#12]
 lenstride:
 @@LEN=4, STRIDE=1
 	VMRS R3, FPSCR		@ get current FPSCR
