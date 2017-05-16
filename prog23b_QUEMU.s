@@ -23,7 +23,7 @@ lenstride:
 	MOV R4, R4, LSL #16	@ move across to b21
 	ORR R3, R3, R4		@ keep all 1's
 	VMSR FPSCR, R3		@ transfer to FPSCR  
-	VADD.F32 S8, S16, S24	@ Vector addition in parallel
+	VSQRT.F32 S8, S16, S24	@ Vector addition in parallel
 
 	VSTR S8, [R6]
 	VSTR S9, [R6,#4]
@@ -32,9 +32,9 @@ lenstride:
 
 	
 	
-	ADD R5,#16
 	ADD R6,#16
-	ADD R7,#16
+	ADD R8,#16
+	ADD R9,#16
 	SUBS R10,#1
 	BNE  ciclo
 
@@ -48,7 +48,7 @@ imprimir:
 	VCVT.F64.F32 D0, S8
 	LDR R0,=formatoF		@ set up for printf
 	VMOV R2, R3, D0
-	BL printf
+		BL printf
 	ADD R6,#4
 	SUBS R10,#1
 	BNE imprimir 
