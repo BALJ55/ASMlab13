@@ -45,7 +45,7 @@ lenstride:
 convert_and_print:
 /* Do conversion for printing, making sure not */
 /* to corrupt Sx registers by over writing */
-	MOV R10,#12
+	MOV R10,#100
 	LDR R6,add_value3
 imprimir:
 	VLDR S8,[R6]
